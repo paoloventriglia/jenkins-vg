@@ -15,11 +15,10 @@ end
 
 # Install docker and pull the jenkins image
 Vagrant.configure("2") do |config|
-  config.vm.provision "docker" do |d|
-   d.pull_images "jenkins",
-     image: "jenkins"
- end 
-end
+  config.vm.provision "docker",
+     images: ["jenkins"]
+end 
+
 
 # Create Jenkins home and run the container
 $script = <<-SCRIPT
